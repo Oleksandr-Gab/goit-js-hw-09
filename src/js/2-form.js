@@ -1,7 +1,6 @@
-const feedbackForm = document.querySelector('.feedback-form');
-
-
 import debounce from "lodash.debounce";
+
+const feedbackForm = document.querySelector('.feedback-form');
 
 feedbackForm.addEventListener('input', debounce(event => {
     const formData = new FormData(feedbackForm);
@@ -10,7 +9,7 @@ feedbackForm.addEventListener('input', debounce(event => {
         formObject[key] = value.trim();
     })
     localStorage.setItem("feedback-form-state", JSON.stringify(formObject));
-}, 600));
+}, 300));
 
 feedbackForm.addEventListener("submit", event => {
 	event.preventDefault();
